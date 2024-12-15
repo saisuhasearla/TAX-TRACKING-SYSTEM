@@ -1,0 +1,268 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/static/bg-img/dollar.jpg'); /* Add the path to your image here */
+    background-size: cover;
+    background-position: center; /* Centers the image */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    position: relative; /* Ensures overlay stays on top */
+}
+
+/* Add the transparent overlay */
+body::before {
+    content: ''; /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+    z-index: -1; /* Sends the overlay behind content */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for the container */
+    max-width: 900px;
+    width: 100%;
+    border-radius: 25px; /* Rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(240, 240, 240, 0.8); /* Light grey background for form */
+    border-radius: 20px; /* Rounded corners for the form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+label {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Rounded corners for form fields */
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #555; /* Monochrome button color */
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px; /* Rounded button */
+}
+
+button:hover {
+    background-color: #333; /* Darker shade for hover effect */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #444; /* Darker header color */
+    color: white;
+    font-size: 1.2rem;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #f1f1f1;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    transition: opacity 0.3s;
+}
+
+.edit-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80%;
+    max-width: 600px;
+}
+
+.edit-popup h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input[type="hidden"] {
+    display: none;
+}
+
+.edit-popup input,
+.edit-popup select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px; /* Rounded corners for popup fields */
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.edit-popup button {
+    background-color: #555; /* Monochrome button color */
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px; /* Rounded button */
+}
+
+.edit-popup button:hover {
+    background-color: #333; /* Darker shade for hover effect */
+}
+
+.mt-4 {
+    margin-top: 30px;
+}
+
+table td button {
+    padding: 8px 15px;
+    margin: 2px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+button.edit-btn {
+    background-color: #666;
+    color: white;
+}
+
+button.delete-btn {
+    background-color: #888;
+    color: white;
+}
+
+
+button.edit-btn:hover {
+    background-color: #555;
+}
+
+button.delete-btn:hover {
+    background-color: #444;
+}
+
+select {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Rounded corners for select */
+}
+
+select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+select option {
+    background-color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    form,
+    .edit-popup {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    table th,
+    table td {
+        font-size: 1rem;
+        padding: 10px;
+    }
+}
